@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Caja de Préstamos — Amortización Constante</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>Caja de Préstamo</h1>
+
+    <section class="panel">
+      <div class="row">
+        <label for="moneda" class="label">Moneda</label>
+        <select id="moneda" aria-label="Seleccionar moneda">
+          <option value="es-MX|MXN">MXN (México)</option>
+          <option value="en-US|USD">USD (Estados Unidos)</option>
+          <option value="es-ES|EUR">EUR (Europa)</option>
+        </select>
+      </div>
+
+      <button id="toggleModo" type="button" class="btn mt">🌙 Modo oscuro</button>
+    </section>
+
+    <section class="panel">
+      <label for="monto" class="label">Monto inicial</label>
+      <input
+        id="monto"
+        type="text"
+        inputmode="decimal"
+        placeholder="Ej. 12,000.00"
+        aria-describedby="montoError"
+        autocomplete="off"
+      />
+      <div id="montoError" class="error" aria-live="polite"></div>
+
+      <label for="plazo" class="label mt">Plazo y tasa por período</label>
+      <select id="plazo" aria-label="Plazo del préstamo">
+        <option value="6">6 meses (5%)</option>
+        <option value="12">12 meses (10%)</option>
+        <option value="18">18 meses (15%)</option>
+      </select>
+
+      <button id="btnCalcular" type="button" class="btn">Calcular</button>
+      <button id="btnLimpiar" type="button" class="btn">Limpiar</button>
+    </section>
+
+    <section id="resumen" class="summary" hidden>
+      <div class="item">
+        <span class="label small">Monto</span>
+        <span id="outMonto" class="value">—</span>
+      </div>
+      <div class="item">
+        <span class="label small">Interés total</span>
+        <span id="outInteres" class="value">—</span>
+      </div>
+      <div class="item">
+        <span class="label small">Total a pagar</span>
+        <span id="outTotal" class="value">—</span>
+      </div>
+      <div class="item">
+        <span class="label small">Cuota (de→a)</span>
+        <span id="outMensual" class="value">—</span>
+      </div>
+    </section>
+
+    <section>
+      <table id="tabla" class="table" hidden>
+        <caption>Tabla de amortización</caption>
+        <thead>
+          <tr>
+            <th>Mes</th>
+            <th>Saldo inicial</th>
+            <th>Cuota</th>
+            <th>Interés</th>
+            <th>Amortización</th>
+            <th>Saldo final</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+
+      <div id="exportar" hidden>
+        <button id="btnExportar" type="button" class="btn mt">📄 Exportar a CSV</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
+
