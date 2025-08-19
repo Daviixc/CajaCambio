@@ -11,7 +11,7 @@ App web que calcula y muestra la tabla de amortización (cuota fija) con interé
 - Redondeo visual a 2 decimales y ajuste de última cuota.
 
 ## Uso
-Abre `index.html` en el navegador o visita:
+Abre `index.html` en el navegador o visita:https://daviixc.github.io/CajaCambio/
 
 ## Tech
 HTML + CSS + JavaScript (sin frameworks).
